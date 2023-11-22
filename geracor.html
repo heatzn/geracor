@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGB Color Generator</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: row; 
+      flex-wrap: wrap; 
+    }
+
+    .colorContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px; 
+    }
+
+    .colorBox {
+      width: 200px;
+      height: 200px;
+      border: 3px solid #000;
+      margin-bottom: 10px;
+    }
+
+    .colorName {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .colorProperties {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="colorContainer">
+    <div class="colorName" id="colorName1"></div>
+    <div class="colorBox" id="colorBox1"></div>
+    <div class="colorProperties" id="colorProperties1"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName2"></div>
+    <div class="colorBox" id="colorBox2"></div>
+    <div class="colorProperties" id="colorProperties2"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName3"></div>
+    <div class="colorBox" id="colorBox3"></div>
+    <div class="colorProperties" id="colorProperties3"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName4"></div>
+    <div class="colorBox" id="colorBox4"></div>
+    <div class="colorProperties" id="colorProperties4"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName5"></div>
+    <div class="colorBox" id="colorBox5"></div>
+    <div class="colorProperties" id="colorProperties5"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName6"></div>
+    <div class="colorBox" id="colorBox6"></div>
+    <div class="colorProperties" id="colorProperties6"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName7"></div>
+    <div class="colorBox" id="colorBox7"></div>
+    <div class="colorProperties" id="colorProperties7"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName8"></div>
+    <div class="colorBox" id="colorBox8"></div>
+    <div class="colorProperties" id="colorProperties8"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName9"></div>
+    <div class="colorBox" id="colorBox9"></div>
+    <div class="colorProperties" id="colorProperties9"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName10"></div>
+    <div class="colorBox" id="colorBox10"></div>
+    <div class="colorProperties" id="colorProperties10"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName11"></div>
+    <div class="colorBox" id="colorBox11"></div>
+    <div class="colorProperties" id="colorProperties11"></div>
+  </div>
+
+  <div class="colorContainer">
+    <div class="colorName" id="colorName12"></div>
+    <div class="colorBox" id="colorBox12"></div>
+    <div class="colorProperties" id="colorProperties12"></div>
+  </div>
+
+  <script>
+    function generateProperties(containerId, index) {
+      // Gerar valores aleatórios para os componentes RGB (0 a 255)
+      const R = Math.floor(Math.random() * 255);
+      const G = Math.floor(Math.random() * 255);
+      const B = Math.floor(Math.random() * 255);
+
+      hR = (R).toString(16);
+      hG = (G).toString(16);
+      hB = (B).toString(16);
+
+      hR = hR.length == 2 ? hR : '0'+hR;
+      hG = hG.length == 2 ? hG : '0'+hG;
+      hB = hB.length == 2 ? hB : '0'+hB;
+      
+      const color = `rgb(${R}, ${G}, ${B})`;
+
+      const colorName = `
+      RGB(${R}, ${G}, ${B})<br>
+      HEX: #${hR}${hG}${hB}
+      `;
+      document.getElementById(`colorName${index + 1}`).innerHTML = colorName;
+
+      document.getElementById(`colorBox${index + 1}`).style.backgroundColor = color;
+    }
+
+    // Chamar a função inicial para exibir seis cores ao carregar a página
+    for (let i = 0; i < 12; i++) {
+      generateProperties('colorContainer', i);
+    }
+  </script>
+</body>
+</html>
